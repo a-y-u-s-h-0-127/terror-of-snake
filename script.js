@@ -26,6 +26,11 @@ let speed = 5;
 let score = 0;
 let a = 1;
 let b = 18;
+let button = document.querySelectorAll('.button');
+let uparrow = document.getElementById('UpArrow');
+let downarrow = document.getElementById('DownArrow');
+let rightarrow = document.getElementById('RightArrow');
+let leftarrow = document.getElementById('LeftArrow');
 
 
 
@@ -139,26 +144,26 @@ function gameEngine() {
 
 
     // smartphone touch sensitivity
-    board.addEventListener('touchstart', handleTouch, false);
-    board.addEventListener('touchmove', handleTouch, false);
+    // board.addEventListener('touchstart', handleTouch, false);
+    // board.addEventListener('touchmove', handleTouch, false);
 
-    function handleTouch(event) {
-        if (event.touches.length === 1) {
-            let touch = event.touches[0];
-            let touchX = touch.clientX - board.offsetLeft;
-            let touchY = touch.clientY - board.offsetTop;
+    // function handleTouch(event) {
+    //     if (event.touches.length === 1) {
+    //         let touch = event.touches[0];
+    //         let touchX = touch.clientX - board.offsetLeft;
+    //         let touchY = touch.clientY - board.offsetTop;
 
-            let head = snakearray[0];
-            if (inputdirection.x !== 0) { 
-                if (touchY < head.y) inputdirection = { x: 0, y: -1 }; 
-                else if (touchY > head.y) inputdirection = { x: 0, y: 1 }; 
-            } else if (inputdirection.y !== 0) { 
-                if (touchX < head.x) inputdirection = { x: -1, y: 0 };
-                else if (touchX > head.x) inputdirection = { x: 1, y: 0 }; 
-            }
-        }
-        event.preventDefault();
-    }
+    //         let head = snakearray[0];
+    //         if (inputdirection.x !== 0) {
+    //             if (touchY < head.y) inputdirection = { x: 0, y: -1 };
+    //             else if (touchY > head.y) inputdirection = { x: 0, y: 1 };
+    //         } else if (inputdirection.y !== 0) {
+    //             if (touchX < head.x) inputdirection = { x: -1, y: 0 };
+    //             else if (touchX > head.x) inputdirection = { x: 1, y: 0 };
+    //         }
+    //     }
+    //     event.preventDefault();
+    // }
 }
 
 
@@ -213,3 +218,32 @@ window.addEventListener('keydown', (event) => {
     }
 });
 
+// smartphone 
+
+Array.from(button).forEach((button) => {
+    button.addEventListener('click', (event) => {
+        music.play();
+        gameover.innerHTML = "";
+        let targetId = event.target.id;
+        switch (targetId) {
+            case "UpArrow":
+                inputdirection.x = 0;
+                inputdirection.y = -1;
+                break;
+            case "LeftArrow":
+                inputdirection.x = -1;
+                inputdirection.y = 0;
+                break;
+            case "DownArrow":
+                inputdirection.x = 0;
+                inputdirection.y = 1;
+                break;
+            case "RightArrow":
+                inputdirection.x = 1;
+                inputdirection.y = 0;
+                break;
+            default:
+                break;
+        }
+    });
+});

@@ -3,6 +3,11 @@
     padding: 0px;
 }
 
+:root{
+    --width: 50px;
+    --height: 50px;
+}
+
 body {
     background-color: black;
     display: flex;
@@ -14,7 +19,13 @@ body {
     font-style: normal;
 }
 
-
+button{
+    background-image: linear-gradient(35deg, rgb(51, 3, 3), black);
+    color: white;
+    outline: none;
+    border: 2px solid rgb(17, 1, 1);
+    font-size: 2rem;
+}
 
 #board {
     background-image: linear-gradient(#0e0e0e, #0a0305);
@@ -26,7 +37,6 @@ body {
     grid-template-columns: repeat(18, 1fr);
     color: white;
 }
-
 
 
 #scoreBox {
@@ -54,6 +64,49 @@ body {
     font-size: 3rem;
 }
 
+#arrow-control{
+    position: absolute;
+    right: 10%;
+    bottom: 80px;
+    height: 69px;
+    width: 86px;
+}
+
+#UpArrow{
+    width: var(--width);
+    height: var(--height);
+}
+
+#DownArrow{
+    width: var(--width);
+    height:var(--height);
+    margin-top: 4px;
+}
+
+#LeftArrow{
+    width:var(--width);
+    height: var(--height);
+}
+
+#RightArrow{
+    width: var(--width);
+    height: var(--height);
+}
+
+.up-down-arrow{
+    display: flex;
+    flex-direction: column;
+    width: 20px;
+    margin: 0px 0px 0px 51px;
+    height: 11px;
+}
+
+.right-left-arrow{
+    width: 152px;
+    display: flex;
+    justify-content: space-between;
+}
+
 .head {
     background-color: rgba(223, 20, 20, 0.952); 
     border: 2px solid rgba(0, 0, 0, 0.123);
@@ -63,7 +116,7 @@ body {
 .snake {
     background-color: rgb(250, 8, 8);
     border: .25vmin solid rgb(0, 0, 0);
-    border-radius: 12px; 
+    border-radius: 12px;
 }
 
 .food {
@@ -75,9 +128,6 @@ body {
     margin: auto;
 }
 
-@media (min-width: 0px) and (max-width: 480px){
-    .food{
-        width: 7px;
-        height: 7px;
-    }
+button:active{
+    background-color: rgba(0, 0, 0, 0.068);
 }
