@@ -134,15 +134,29 @@ button:active{
 
 @media (max-width:480px) {
     button{
-        font-size: 2.5rem;
+        font-size: 3.5rem;
     }
 
     #arrow-control{
-        right: 20%;
-        bottom: 15%;
+        right: 30%;
+        bottom: 20%;
     }
 
     .right-left-arrow{
         margin-top: 8px;
+    }
+
+    .up-down-arrow{
+        height: 23px;
+        margin: 0px 0px 0px 68px;
+    }
+
+    .right-left-arrow{
+        width: 200px;
+    }
+
+    #RightArrow, #LeftArrow, #DownArrow, #UpArrow{
+        width: 60px;
+        height: 60px;
     }
 }
